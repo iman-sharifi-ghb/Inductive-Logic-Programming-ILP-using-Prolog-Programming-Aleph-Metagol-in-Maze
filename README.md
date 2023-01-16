@@ -173,3 +173,5 @@ Accuracy = 1.0
 6. Use `induce.` to extract target rules.
 
 7. To find bottum clauses one by one, just use `sat(i).` i is the number of a rule, and use `reduce.` to find rules.
+
+8. To save extracted rules use `write_rules('filename.txt')`.
