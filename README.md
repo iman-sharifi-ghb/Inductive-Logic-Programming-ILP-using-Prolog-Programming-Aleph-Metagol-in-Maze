@@ -8,7 +8,7 @@ Email: iman.sharifi.edu@gmail.com
 # How to run:
 
 1. Before running, make sure you have installed YAP (Yet Another Prolog) on your OS Linux.
-  To install `YAP`, you can simply use this (link)[https://gist.github.com/mdip/caab58b5b329ff02d819].
+  To install `YAP`, you can simply use this [link](https://gist.github.com/mdip/caab58b5b329ff02d819).
   
 2. After installation, type `yap` in terminal and prolog command prompt will be opened.
 
@@ -22,3 +22,15 @@ Email: iman.sharifi.edu@gmail.com
 
 7. To find bottum clauses one by one, just use `sat(i).` i is the number of a rule, and use `reduce.` to find rules.
 
+
+
+
+
+
+## Extracted Rules
+```
+next_state(A,B,C) :-
+   adjacent(A,B,C), not_wall(C), not_wall(A).
+next_state(A,B,A) :-
+   adjacent(A,B,C), wall(C).
+```
