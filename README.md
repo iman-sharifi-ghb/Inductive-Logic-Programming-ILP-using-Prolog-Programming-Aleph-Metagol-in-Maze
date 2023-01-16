@@ -23,7 +23,7 @@ Email: iman.sharifi.edu@gmail.com
 
 #### States
 
-`state(X)` means: state X is a state.
+`state(X).` means: state X is a state.
 ```
 state((1,1)). state((2,1)). state((3,1)).
 state((1,2)). state((2,2)). state((3,2)).
@@ -32,7 +32,7 @@ state((1,3)). state((2,3)). state((3,3)).
 
 #### Actions
 
-`action(X)` means: state X is an action.
+`action(X).` means: state X is an action.
 ```
 act(right).
 act(left).
@@ -57,7 +57,7 @@ adjacent(X,up,Y):-adjacent(Y,down,X).
 
 #### Obstacles (walls)
 
-`wall(X)` means: state X is an obstacle (wall).
+`wall(X).` means: state X is an obstacle (wall).
 ```
 wall((1,1)).
 wall((1,2)).
