@@ -6,6 +6,9 @@ Creator: **_Iman Sharifi_**
 Email: iman.sharifi.edu@gmail.com
 
 # State Transition in Maze
+
+![image](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/blob/main/MazeEnv.png)
+
 ## Language Settings
 #### Mode Declaration and Determination
 ```
