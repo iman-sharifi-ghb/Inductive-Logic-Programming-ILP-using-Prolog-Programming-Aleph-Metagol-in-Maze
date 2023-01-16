@@ -2,8 +2,7 @@
 
 # Abstract
 
-Most Machine learning algorithms lack logical reasoning, data-efficiency, and interpretability which make the situation worse when need to be used in different environments from the training one. However, Symbolic methods can simply get rid of this shartages using logical programming. In this project,
-We are going to find State Transition in the Maze gridworld using Prolog and Aleph. In fact, using pre-defined states, actions, neighborhood relations, and obstacles, we aim to find the next state in a given state by taking a specific action. This project shows that the extracted rules are gereralizeable to new environments.
+Most Machine learning algorithms lack logical reasoning, data-efficiency, and interpretability, which makes the situation worse when is needed to be used in different environments from the training one. However, symbolic methods can simply get rid of these shartages using logical programming. In this project, we are going to find State Transition in the Maze gridworld using Prolog and Aleph. In fact, using pre-defined states, actions, neighborhood relations, and obstacles, we aim to find the next state in a given state by taking a specific action. This project shows that the extracted rules are gereralizeable to new environments.
 
 Creator: **_Iman Sharifi_**
 
