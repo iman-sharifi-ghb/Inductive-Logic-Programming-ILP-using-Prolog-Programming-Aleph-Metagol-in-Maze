@@ -167,7 +167,7 @@ Accuracy = 1.0
 
 4. load Aleph using `[aleph].`.
 
-5. Use `read_all(maze).` to load language setting (maze.b), positive (maze.f) and negative examples (maze.n).
+5. Use `read_all(maze).` to load language setting and background knowledge (maze.b), positive (maze.f) and negative examples (maze.n).
 
 6. Use `induce.` to extract target rules.
 
