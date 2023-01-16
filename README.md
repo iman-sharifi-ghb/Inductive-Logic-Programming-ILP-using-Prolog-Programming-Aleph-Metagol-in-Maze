@@ -22,6 +22,8 @@ Email: iman.sharifi.edu@gmail.com
 ## Background Knowledge
 
 #### States
+
+`state(X)` means: state X is a state.
 ```
 state((1,1)). state((2,1)). state((3,1)).
 state((1,2)). state((2,2)). state((3,2)).
@@ -29,6 +31,8 @@ state((1,3)). state((2,3)). state((3,3)).
 ```
 
 #### Actions
+
+`action(X)` means: state X is an action.
 ```
 act(right).
 act(left).
@@ -39,6 +43,8 @@ action(X):-act(X).
 ```
 
 #### Neighborhood (adjacent)
+
+`adjacent(X,D,Y).` means: if we be in state X and move in direction D, then we will be in the state Y.
 ```
 adjacent((A,B),right,(C,D)):-state((A,B)),state((C,D)),D is B,C is A+1,!.
 adjacent((A,B),left ,(C,D)):-state((A,B)),state((C,D)),D is B,C is A-1,!.
@@ -50,6 +56,8 @@ adjacent(X,up,Y):-adjacent(Y,down,X).
 ```
 
 #### Obstacles (walls)
+
+`wall(X)` means: state X is an obstacle (wall).
 ```
 wall((1,1)).
 wall((1,2)).
@@ -123,6 +131,23 @@ next_state(A,B,C) :-
    adjacent(A,B,C), not_wall(C), not_wall(A).
 next_state(A,B,A) :-
    adjacent(A,B,C), wall(C).
+```
+
+#### Accuracy
+
+Confusion Matrix
+
+```
+[Training set performance]
+          Actual
+       +        - 
+     + 14        0        14 
+Pred 
+     - 0        24        24 
+
+       14        24        38 
+
+Accuracy = 1.0
 ```
 
 # How to run:
