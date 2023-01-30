@@ -174,3 +174,7 @@ Accuracy = 1.0
 7. To find bottum clauses one by one, just use `sat(i).` i is the number of a rule, and use `reduce.` to find rules.
 
 8. To save extracted rules use `write_rules('filename.txt')`.
+
+# State Transition using Metagol
+
+The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/Maze%20via%20Metagol).
