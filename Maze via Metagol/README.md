@@ -22,10 +22,12 @@ Email: iman.sharifi.edu@gmail.com
 #### Metagol Settings
 ```
 :- use_module('metagol').
-max_clauses(2).
+max_clauses(5).
 
 head_pred(next_state/3).
 body_pred(adjacent/3).
+body_pred(wall/1).
+body_pred(not_wall/1).
 ```
 
 ## Background Knowledge
@@ -78,8 +80,8 @@ not_wall(X):-not(wall(X)).
 
 ## Meta-Rules
 ```
-metarule([P,Q],[P,A,B,C],[[Q,A,B,C],[not_wall,A],[not_wall,C]]).
-metarule([P,Q],[P,A,B,A],[[Q,A,B,C],[not_wall,A],[wall,C]]).
+metarule(postcon,[P,Q,R,S],[P,A,B,C],[[Q,A,B,C],[R,A],[S,C]]).
+metarule(postcon2,[P,Q,R,S],[P,A,B,A],[[Q,A,B,C],[R,A],[S,C]]).
 ```
 
 #### Positive Examples
