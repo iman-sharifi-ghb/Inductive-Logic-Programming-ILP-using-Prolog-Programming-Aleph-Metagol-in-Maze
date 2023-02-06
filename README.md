@@ -181,7 +181,7 @@ We extracted the same rules for `next_state` using Metagol in this [link](https:
 
 # Planning in Maze grid world using Prolog
 
-The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
+You can readily find paths from one state (cell) to another state using Prolog in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
 
 
 # Planning in Maze grid world using Metagol
