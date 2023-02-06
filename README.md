@@ -177,4 +177,4 @@ Accuracy = 1.0
 
 # State Transition using Metagol
 
-The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/Maze%20via%20Metagol).
+The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
