@@ -156,7 +156,7 @@ Pred
 Accuracy = 1.0
 ```
 
-# How to run:
+#### How to run:
 
 1. Before running, make sure you have installed YAP (Yet Another Prolog) on your OS Linux.
   To install `YAP`, you can simply use this [link](https://gist.github.com/mdip/caab58b5b329ff02d819).
@@ -179,7 +179,7 @@ Accuracy = 1.0
 
 # State Transition in Maze using Metagol
 
-# Abstract
+## Abstract
 
 Meta-Interpretive Learning (MIL) is a machine learning technique that allows a learning system to modify its own knowledge representations and improve its own performance over time. This is in contrast to traditional machine learning, where the model is fixed and the learning process only adjusts the model's parameters.
 
@@ -217,7 +217,7 @@ next_state(A,B,A):-adjacent(A,B,C),not_wall(A),wall(C).
 true.
 ```
 
-# How to run:
+#### How to run:
 
 1. Before running, make sure you have installed SWI-Prolog on your OS Linux.
   
