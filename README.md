@@ -179,6 +179,65 @@ Accuracy = 1.0
 
 We extracted the same rules for `next_state` using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
 
+# Inductive-Logic-Programming-using-Prolog-Programming-and-Metagol
+
+# Abstract
+
+Meta-Interpretive Learning (MIL) is a machine learning technique that allows a learning system to modify its own knowledge representations and improve its own performance over time. This is in contrast to traditional machine learning, where the model is fixed and the learning process only adjusts the model's parameters.
+
+MIL is based on the idea of learning by interpretation, where the learning system interprets examples, modifies its knowledge, and then re-interprets the examples. This process continues until the learning system reaches a satisfactory level of performance.
+
+MIL has been applied in a variety of domains, including natural language processing, computer vision, and robotics. It has the advantage of allowing for incremental learning and the ability to continuously improve performance over time.
+
+MIL is a relatively new and emerging field, and there is still much work to be done to fully understand its capabilities and limitations. However, it has shown promise as a powerful and flexible approach to machine learning that can be applied to a wide range of problems.
+
+Creator: **_Iman Sharifi_**
+
+Email: iman.sharifi.edu@gmail.com
+
+# State Transition in Maze
+
+![image](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/blob/main/MazeEnv.png)
+
+## Language Settings
+#### Metagol Settings
+```
+:- use_module('metagol').
+max_clauses(5).
+
+head_pred(next_state/3).
+body_pred(adjacent/3).
+body_pred(wall/1).
+body_pred(not_wall/1).
+```
+
+## Meta-Rules
+```
+metarule(postcon,[P,Q,R,S],[P,A,B,C],[[Q,A,B,C],[R,A],[S,C]]).
+metarule(postcon2,[P,Q,R,S],[P,A,B,A],[[Q,A,B,C],[R,A],[S,C]]).
+```
+
+## Extracted Rules
+```
+% learning next_state/3
+% clauses: 1
+% clauses: 2
+next_state(A,B,C):-adjacent(A,B,C),not_wall(A),not_wall(C).
+next_state(A,B,A):-adjacent(A,B,C),not_wall(A),wall(C).
+true.
+```
+
+# How to run:
+
+1. Before running, make sure you have installed SWI-Prolog on your OS Linux.
+  
+2. After installation, type `prolog` in terminal and prolog command prompt will be opened.
+
+3. Use `pwd.` command to find current directory and `cd('files directory').` to change your directory.
+
+4. Type `consult('maze.pl').`.
+
+
 # Planning in Maze grid world using Prolog
 
 You can readily find paths from one state (cell) to another state using Prolog in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
