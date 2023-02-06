@@ -1,0 +1,60 @@
+imansharifi@lenovo-g50-80:~/directory$ prolog
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.6.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- consult('maze_planning_metagol.pl').
+
+Language Setting ...
+The states (maze cells) have been defined.
+The neighborhood relations have been defined.
+The obstacles (walls) have been defined.
+
+true.
+
+?- learn.
+% learning find_path/3
+% clauses: 1
+% clauses: 2
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path(D,B,C).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-valid_state(B),next_state(A,D),valid_state(D),find_path(D,B,C).
+true ;
+% clauses: 3
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path_1(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path_1(D,B,C).
+true ;
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path_1(A,B,[A|C]):-valid_state(B),next_state(A,D),valid_state(D),find_path_1(D,B,C).
+true ;
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path(D,B,C).
+true ;
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-valid_state(B),next_state(A,D),valid_state(D),find_path(D,B,C).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path(D,B,C).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),find_path_1(A,D),not_wall(D),find_path(D,B,C).
+find_path_1(A,B):-next_state(A,B).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),find_path_1(A,D),not_wall(D),find_path(D,B,C).
+find_path_1(A,B):-valid_state(B),next_state(A,B).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),find_path_1(A,D),not_wall(D),find_path(D,B,C).
+find_path_1(A,B):-next_state(A,B),not_wall(B).
+true .
+

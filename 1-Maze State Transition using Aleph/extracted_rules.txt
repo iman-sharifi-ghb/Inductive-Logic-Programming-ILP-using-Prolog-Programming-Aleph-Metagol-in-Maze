@@ -1,0 +1,4 @@
+next_state(A,B,C) :-
+   adjacent(A,B,C), not_wall(C), not_wall(A).
+next_state(A,B,A) :-
+   adjacent(A,B,C), wall(C).
