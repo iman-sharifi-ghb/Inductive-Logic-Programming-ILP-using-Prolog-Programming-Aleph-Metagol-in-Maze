@@ -177,4 +177,13 @@ Accuracy = 1.0
 
 # State Transition using Metagol
 
-The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
+We extracted the same rules for `next_state` using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
+
+# Planning in Maze grid world using Prolog
+
+The same problem has been solved using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
+
+
+# Planning in Maze grid world using Metagol
+
+We extracted some rules for finding paths from one state (cell) to another  state using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/4-Extract%20Planning%20Rules%20using%20Metagol).
