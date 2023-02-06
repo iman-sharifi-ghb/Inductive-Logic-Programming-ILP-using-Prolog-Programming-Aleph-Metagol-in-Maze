@@ -1,4 +1,4 @@
-# Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph
+# Inductive-Logic-Programming-for-Maze-State-Transition-and-Planning-using-Prolog-Programming
 
 # Abstract
 
@@ -8,7 +8,7 @@ Creator: **_Iman Sharifi_**
 
 Email: iman.sharifi.edu@gmail.com
 
-# State Transition in Maze
+# State Transition in Maze using Aleph
 
 ![image](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/blob/main/MazeEnv.png)
 
@@ -175,11 +175,9 @@ Accuracy = 1.0
 
 8. To save extracted rules use `write_rules('filename.txt')`.
 
-# State Transition using Metagol
 
-We extracted the same rules for `next_state` using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
 
-# Inductive-Logic-Programming-using-Prolog-Programming-and-Metagol
+# State Transition in Maze using Metagol
 
 # Abstract
 
@@ -190,14 +188,6 @@ MIL is based on the idea of learning by interpretation, where the learning syste
 MIL has been applied in a variety of domains, including natural language processing, computer vision, and robotics. It has the advantage of allowing for incremental learning and the ability to continuously improve performance over time.
 
 MIL is a relatively new and emerging field, and there is still much work to be done to fully understand its capabilities and limitations. However, it has shown promise as a powerful and flexible approach to machine learning that can be applied to a wide range of problems.
-
-Creator: **_Iman Sharifi_**
-
-Email: iman.sharifi.edu@gmail.com
-
-# State Transition in Maze
-
-![image](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/blob/main/MazeEnv.png)
 
 ## Language Settings
 #### Metagol Settings
@@ -237,10 +227,15 @@ true.
 
 4. Type `consult('maze.pl').`.
 
+You can see the corresponding codes in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/2-Maze%20State%20Transition%20using%20Metagol).
+
+
 
 # Planning in Maze grid world using Prolog
 
 You can readily find paths from one state (cell) to another state using Prolog in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
+
+
 
 
 # Planning in Maze grid world using Metagol
