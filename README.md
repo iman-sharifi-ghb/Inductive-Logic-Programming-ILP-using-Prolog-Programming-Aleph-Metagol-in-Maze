@@ -36,6 +36,19 @@ state((1,2)). state((2,2)). state((3,2)).
 state((1,3)). state((2,3)). state((3,3)).
 ```
 
+If you want to creats maze states automatically, please use this code block:
+```
+:- dynamic state/1.
+maxWidth(3).
+maxHeight(3).
+
+create:-
+	maxWidth(N),
+	maxHeight(M),
+	forall(between(1,N,X),(
+	forall(between(1,M,Y),assertz(state((X,Y)))))).
+```
+
 #### Actions
 
 `action(X).` means, X is an action.
