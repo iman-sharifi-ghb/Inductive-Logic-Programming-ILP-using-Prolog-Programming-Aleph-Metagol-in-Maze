@@ -233,11 +233,137 @@ You can see the corresponding codes in this [link](https://github.com/98210184/I
 
 # Planning in Maze grid world using Prolog
 
+% Next State
+`next_state(S1,A,S2).` means If we be in the legal state S1 and go towards action A, we will be in the legal state S2.
+
+```
+next_state(S1,A,S2):-adjacent(S1,A,S2),not_wall(S1),not_wall(S2).
+next_state(S1,A,S1):-adjacent(S1,A,S2),not_wall(S1),wall(S2).
+```
+Required build-in predicates:
+```
+revert(X,Y):-reverse(X,Y).
+not_member(X,Y):-not(member(X,Y)).
+```
+
+#### Planning rules
+```
+find_path(Start,Goal,Path):-not_wall(Start),not_wall(Goal),find_path_helper(Start,Goal,[],Path).
+find_path_helper(State,State,Visited,Path):-revert([State|Visited],Path).
+find_path_helper(State,Goal,Visited,Path):-
+	next_state(State,Action,NewState),
+	not_member(NewState,Visited),
+	writeln(Action),
+	find_path_helper(NewState,Goal,[State|Visited],Path),!.
+```
+
+#### outputs
+
+```
+?- find_path((3,1),(1,3),Path).
+left
+down
+down
+left
+Path = [(3, 1),  (2, 1),  (2, 2),  (2, 3),  (1, 3)].
+
+?- find_path((1,3),(3,1),Path).
+right
+up
+up
+right
+Path = [(1, 3),  (2, 3),  (2, 2),  (2, 1),  (3, 1)].
+```
+
 You can readily find paths from one state (cell) to another state using Prolog in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/3-Planning%20in%20Maze%20using%20Prolog).
 
 
 
 
 # Planning in Maze grid world using Metagol
+
+## Language Settings
+#### Metagol Settings
+```
+:- use_module('metagol').
+
+max_clauses(10).
+
+%% metagol settings
+%head_pred(find_path/3).
+body_pred(next_state/2).
+body_pred(wall/1).
+body_pred(not_wall/1).
+body_pred(valid_state/1).
+```
+
+## Meta-Rules
+```
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(ident1, [P,Q], [P,A,B,C], [[Q,A,B,C]]).
+metarule(ident2, [P,Q], [P,A,B,[A,B]], [[Q,A,B]]).
+metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
+metarule(postcon1, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
+metarule(recursion, [P,Q,R], [P,A,B,[A|L1]], [[R,B], [Q,A,C], [R,C], [P,C,B,L1]]).
+```
+
+#### Positive Examples
+```
+find_path((1,3),(2,3),[(1,3),(2,3)]),
+find_path((1,3),(2,2),[(1,3),(2,3),(2,2)]),
+find_path((1,3),(2,1),[(1,3),(2,3),(2,2),(2,1)]),
+fid_path((1,3),(3,1),[(1,3),(2,3),(2,2),(2,1),(3,1)]),
+find_path((3,1),(2,1),[(3,1),(2,1)]),
+find_path((3,1),(2,2),[(3,1),(2,1),(2,2)]),
+find_path((3,1),(2,3),[(3,1),(2,1),(2,2),(2,3)]),
+find_path((3,1),(1,3),[(3,1),(2,1),(2,2),(2,3),(1,3)])
+```
+
+#### Negative Examples
+```
+find_path((1,3),(1,2),[(1,3),(1,2)]),
+find_path((1,3),(2,2),[(1,3),(1,2),(2,2)]),
+find_path((1,3),(2,1),[(1,3),(1,2),(1,1),(2,1)]),
+find_path((1,3),(3,1),[(1,3),(2,3),(3,3),(3,2),(3,1)]),
+find_path((3,1),(3,2),[(3,1),(3,2)]),
+find_path((3,1),(2,2),[(3,1),(3,2),(2,2)]),
+find_path((3,1),(2,3),[(3,1),(3,2),(3,3),(2,3)]),
+find_path((3,1),(1,3),[(3,1),(2,1),(1,1),(1,2),(1,3)]),
+find_path((1,1),(1,2),[(1,1),(1,2)]),
+find_path((1,1),(2,1),[(1,1),(2,1)])
+```
+
+## Extracted Rules
+```
+?- learn.
+% learning find_path/3
+% clauses: 1
+% clauses: 2
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path(D,B,C).
+true ;
+find_path(A,B,[A,B]):-next_state(A,B).
+find_path(A,B,[A|C]):-valid_state(B),next_state(A,D),valid_state(D),find_path(D,B,C).
+true ;
+% clauses: 3
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path_1(A,B,[A|C]):-not_wall(B),next_state(A,D),not_wall(D),find_path_1(D,B,C).
+true ;
+find_path(A,B,C):-find_path_1(A,B,C).
+find_path_1(A,B,[A,B]):-next_state(A,B).
+find_path_1(A,B,[A|C]):-valid_state(B),next_state(A,D),valid_state(D),find_path_1(D,B,C).
+true 
+```
+
+#### How to run:
+
+1. Before running, make sure you have installed SWI-Prolog on your OS Linux.
+  
+2. After installation, type `prolog` in terminal and prolog command prompt will be opened.
+
+3. Use `pwd.` command to find current directory and `cd('files directory').` to change your directory.
+
+4. Type `consult('maze_planning_metagol.pl').`.
 
 We extracted some rules for finding paths from one state (cell) to another  state using Metagol in this [link](https://github.com/98210184/Inductive-Logic-Programming-using-Prolog-Programming-and-Aleph/tree/main/4-Extract%20Planning%20Rules%20using%20Metagol).
